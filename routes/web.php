@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/panel', function () {
 })->name('dashboard');
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','isAdmin']],function(){
-    
+Route::resource('quizzes',QuizController::class);
    
 });
