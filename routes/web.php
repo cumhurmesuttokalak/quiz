@@ -23,6 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/panel', function () {
 })->name('dashboard');
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','isAdmin']],function(){
+Route::get('quizzes/{id}',[QuizController::class,'destroy'])->whereNumber('id')->name('quizzes.destroy');
 Route::resource('quizzes',QuizController::class);
-   
 });
