@@ -3,10 +3,14 @@
     <x-slot name="header">{{$quiz->title}} Quizine Ait Sorular </x-slot>
     <div class="card">
        <div class="card-body">
-           <h5 class="card-title">
+       
+           <h5 class="card-title display: inline; margin:left-outo;">
            <a href="{{route('questions.create',$quiz->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Soru Oluştur</a>
            </h5>
-                        <table class="table table-bordered table-sm">
+           <h5 class="card-title">
+           <a href="{{route('quizzes.index')}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left">Quizlere Dön</i></a>
+           </h5>
+                    <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
                     <th scope="col">Soru</th>
@@ -16,12 +20,12 @@
                     <th scope="col">3. Cevap</th>
                     <th scope="col">4. Cevap</th>
                     <th scope="col">Doğru Cevap</th>
-                    <th scope="col" style="width:100;" >işlemler</th>
+                    <th scope="col" style="width:100;">işlemler</th>
                    
                     </tr>
                     @foreach($quiz->questions as $question)
                     <tr>
-                    <td>{{$quiz->title}}</td>
+                    <td>{{$question->question}}</td>
                     <td>
                         @if($question->image)
                         <a href="{{asset($question->image)}}" target="_blank" class="btn btn-sm btn-light">Görüntüle</a>
